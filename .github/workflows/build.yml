@@ -18,6 +18,7 @@ jobs:
       - name: تحميل أدوات البناء
         run: |
           npm init -y
+          npm pkg set main=main.js
           npm install electron electron-builder --save-dev
           
       - name: إنشاء ملف التشغيل الأساسي
@@ -30,7 +31,7 @@ jobs:
           echo 'app.on("window-all-closed", () => app.quit());' >> main.js
           
       - name: بناء التطبيق
-        run: npx electron-builder --win --ia32 -c.extraMetadata.main=main.js
+        run: npx electron-builder --win --ia32
 
       - name: حفظ ملف التطبيق
         uses: actions/upload-artifact@v4
