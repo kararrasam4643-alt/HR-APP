@@ -1,0 +1,39 @@
+name: بناء تطبيق ويندوز
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: سحب الملفات
+        uses: actions/checkout@v4
+      
+      - name: تجهيز بيئة العمل
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          
+      - name: تحميل أدوات البناء
+        run: |
+          npm init -y
+          npm install electron electron-builder --save-dev
+          
+      - name: إنشاء ملف التشغيل الأساسي
+        run: |
+          echo 'const { app, BrowserWindow } = require("electron");' > main.js
+          echo 'app.whenReady().then(() => {' >> main.js
+          echo '  const win = new BrowserWindow({ width: 1280, height: 800, autoHideMenuBar: true });' >> main.js
+          echo '  win.loadFile("index.html");' >> main.js
+          echo '});' >> main.js
+          echo 'app.on("window-all-closed", () => app.quit());' >> main.js
+          
+      - name: بناء التطبيق
+        run: npx electron-builder --win --ia32 -c.extraMetadata.main=main.js
+
+      - name: حفظ ملف التطبيق
+        uses: actions/upload-artifact@v4
+        with:
+          name: HR-App-Windows
+          path: dist/*.exe
