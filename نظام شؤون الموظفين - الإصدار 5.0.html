@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///C:/Users/alkhy_000/Desktop/HR_App/index.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#075e57">
+<title>نظام شؤون الموظفين - الإصدار 5.0</title>
+<style>
+:root{--green:#075e57;--green2:#087d70;--dark:#123f3b;--gold:#bd9a5b;--bg:#eef3f2;--line:#dce7e5;--muted:#71817f;--white:#fff;--red:#b42323;--blue:#3154a4}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:#24343a}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
+.app{display:flex;min-height:100vh}.sidebar{width:235px;flex:0 0 235px;background:linear-gradient(180deg,#075e57,#073f3b);color:#fff;padding:20px 14px;display:flex;flex-direction:column;gap:8px}
+.brand{padding:10px 9px 22px;border-bottom:1px solid #ffffff25;margin-bottom:10px}.brand b{font-size:18px;display:block}.brand small{color:#c7e2dc;display:block;margin-top:7px}
+.navbtn{background:transparent;color:#d9eeea;text-align:right;padding:13px 14px;border-radius:10px;font-size:14px}.navbtn:hover,.navbtn.active{background:#ffffff20;color:#fff}.navbtn span{display:inline-block;width:27px}
+.sidefoot{margin-top:auto;color:#b8d8d2;font-size:11px;line-height:1.8;padding:12px}
+.workspace{min-width:0;flex:1;padding:22px 25px 35px;overflow:auto}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px}.topbar h1{font-size:22px;color:var(--dark);margin:0}.topmeta{font-size:12px;color:var(--muted)}
+.page{display:none}.page.active{display:block}.hero{background:linear-gradient(115deg,#087d70,#064c49);color:white;padding:24px 27px;border-radius:17px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;gap:15px}.hero h2{margin:0 0 9px;font-size:22px}.hero p{margin:0;line-height:1.8;font-size:13px;color:#e1f3ef}.hero-mark{font-size:42px;opacity:.9}
+.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:12px;margin-bottom:17px}.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px}.stat small{color:var(--muted);display:block;margin-bottom:8px}.stat strong{font-size:25px;color:var(--green)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;margin-bottom:14px}.panel h3{font-size:16px;color:var(--green);margin:0 0 14px}.toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:13px}.toolbar input{max-width:340px}
+.btn{padding:10px 14px;border-radius:9px;font-weight:bold;font-size:13px}.primary{background:var(--green);color:#fff}.secondary{background:#e5f3f1;color:var(--green)}.blue{background:#e8efff;color:var(--blue)}.danger{background:#fee8e8;color:var(--red)}.gold{background:#f7f0e3;color:#86652c}.smallbtn{padding:7px 10px;font-size:12px}
+input,select,textarea{width:100%;padding:10px 11px;border:1px solid #d5e0de;border-radius:8px;background:#fff;outline:none;color:#263b39}input:focus,select:focus,textarea:focus{border-color:var(--green2);box-shadow:0 0 0 2px #087d7015}textarea{min-height:75px;resize:vertical}label{display:block;font-size:12px;font-weight:bold;color:#415451;margin:11px 0 6px}
+.formgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 12px}.field.full{grid-column:1/-1}.field.half{grid-column:span 2}.hint{font-size:11px;color:var(--muted);line-height:1.7}
+.employee-row{display:grid;grid-template-columns:52px minmax(160px,1fr) 1fr auto;gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:11px;margin-bottom:8px;background:#fbfdfd}
+.avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#e5f3f1;border:2px solid #d6e9e4;display:flex;align-items:center;justify-content:center;color:var(--green);font-size:22px}
+.employee-row h4{margin:0 0 5px;color:var(--green);font-size:14px}.employee-row p{margin:3px 0;color:var(--muted);font-size:11px;line-height:1.6}.actions{display:flex;gap:5px;flex-wrap:wrap}
+.badge{display:inline-block;padding:4px 8px;border-radius:6px;background:#e1f2ed;color:var(--green);font-size:11px}
+.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:#061f1dcc;z-index:20;align-items:center;justify-content:center;padding:12px}.modal.show{display:flex}.dialog{width:min(1100px,98vw);max-height:95vh;overflow:auto;background:#f7faf9;border-radius:16px;padding:18px;box-shadow:0 15px 60px #0004}.dialoghead{display:flex;justify-content:space-between;align-items:center;position:sticky;top:-18px;background:#f7faf9;padding:5px 0 12px;z-index:2}.dialoghead h2{font-size:18px;color:var(--green);margin:0}.close{background:#e9eeee;padding:8px 12px;border-radius:8px}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}.tab{background:#e8efed;color:#45615d;padding:9px 13px;border-radius:8px;font-size:12px}.tab.active{background:var(--green);color:#fff}.tabpane{display:none}.tabpane.active{display:block}
+.photo-box{display:flex;align-items:center;gap:15px;background:#edf5f2;padding:13px;border-radius:12px;margin-bottom:12px}.photo-box img{width:90px;height:90px;border-radius:50%;object-fit:cover;border:4px solid #d6e9e4}.photo-placeholder{width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#dceee8;color:var(--green);font-size:34px}
+.records{border:1px solid var(--line);border-radius:10px;padding:12px;margin:12px 0;background:#fff}.record-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.record-head h4{margin:0;color:var(--green);font-size:14px}.record-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 10px}
+.fileline{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px;border-bottom:1px solid #edf1f0;font-size:12px}.fileline:last-child{border:0}.fileline a{color:var(--green)}
+.detailgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.detailcell{background:#f3f7f6;border-radius:9px;padding:10px}.detailcell small{display:block;color:var(--muted);margin-bottom:5px}.detailcell b{font-size:13px;overflow-wrap:anywhere}
+.toast{position:fixed;bottom:18px;left:18px;z-index:50;background:#153f3a;color:#fff;padding:12px 18px;border-radius:9px;display:none;max-width:90vw;font-size:13px}
+.progress{height:7px;background:#e5eeee;border-radius:10px;overflow:hidden;margin-top:10px}.progress div{height:100%;width:0;background:var(--green2)}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:10px;text-align:right;border-bottom:1px solid var(--line)}th{color:var(--green);background:#f3f8f7}
+@media(max-width:850px){.sidebar{width:175px;flex-basis:175px;padding:14px 9px}.workspace{padding:15px}.stats-grid{grid-template-columns:repeat(2,1fr)}.formgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.employee-row{grid-template-columns:48px 1fr auto}.employee-row .rowextra{display:none}}
+@media(max-width:620px){.app{min-width:760px}.workspace{padding:12px}.sidebar{width:160px;flex-basis:160px}.topbar h1{font-size:18px}}
+@media print{.sidebar,.topbar,.toolbar,.actions,.no-print{display:none!important}.workspace{padding:0}.page{display:none!important}#printArea{display:block!important}.dialog{max-height:none;overflow:visible}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+ <div class="brand"><b>نظام شؤون الموظفين</b><small>إدارة الأضابير والاستحقاقات الوظيفية</small></div>
+ <button class="navbtn" data-page="home"><span>⌂</span>الرئيسية</button>
+ <button class="navbtn active" data-page="employees"><span>👥</span>الموظفون والأضابير</button>
+ <button class="navbtn" data-page="alerts"><span>🔔</span>التنبيهات والاستحقاقات</button>
+ <button class="navbtn" data-page="stats"><span>▦</span>الإحصائيات والتقارير</button>
+ <button class="navbtn" data-page="backup"><span>💾</span>النسخ الاحتياطي</button>
+ <div class="sidefoot">تصميم وتطوير<br><b>كرار رحيم الكعبي</b><br>الإصدار 5.0 — يعمل محلياً</div>
+</aside>
+<main class="workspace">
+ <div class="topbar"><h1 id="pageTitle">الموظفون والأضابير</h1><div class="topmeta" id="today">٩ تشرين الثاني ٢٠٢٦</div></div>
+ <section class="page" id="home">
+  <div class="hero"><div><h2>نظام إدارة العلاوات والترفيعات</h2><p>إدارة شاملة للموظفين والأضابير والوثائق ومتابعة الاستحقاقات الوظيفية.</p><p style="margin-top:10px">نسخة تجريبية أولية — لا تحتاج إلى إنترنت</p></div><div class="hero-mark">▤</div></div>
+  <div class="stats-grid" id="homeStats"><div class="stat"><small>إجمالي الموظفين</small><strong>0</strong></div><div class="stat"><small>المستمرون</small><strong>0</strong></div><div class="stat"><small>المجازون</small><strong>0</strong></div><div class="stat"><small>استحقاقات قريبة</small><strong>0</strong></div></div>
+  <div class="grid2"><div class="panel"><h3>آخر الأضابير المسجلة</h3><div id="recent"><div class="empty">لا توجد أضابير مسجلة.</div></div></div><div class="panel"><h3>الاستحقاقات القريبة</h3><div id="homeDue"><div class="empty">لا توجد استحقاقات قريبة.</div></div></div></div>
+ </section>
+ <section class="page active" id="employees">
+  <div class="panel"><h3>إدارة الموظفين</h3><div class="toolbar"><button class="btn primary" onclick="openEmployee()">＋ إضافة موظف جديد</button><input id="search" placeholder="ابحث بالاسم أو الرقم الوظيفي أو العنوان..." oninput="renderEmployees()"></div><div class="hint">يمكن فتح الأضبارة وعرضها وتعديلها وحذفها وطباعتها. جميع المرفقات تحفظ محلياً.</div></div>
+  <div class="panel"><h3>قائمة الأضابير</h3><div id="employeeList"><div class="empty">لا توجد أضابير مطابقة.</div></div></div>
+ </section>
+ <section class="page" id="alerts"><div class="panel"><h3>التنبيهات والاستحقاقات</h3><p class="hint">تعرض هذه الصفحة الاستحقاقات التي يحين موعدها خلال 30 يوماً والمتأخرة. راجع صحة التواريخ قبل اعتماد أي إجراء.</p><div id="alertsList"></div></div></section>
+ <section class="page" id="stats"><div class="panel"><h3>الإحصائيات العامة</h3><div id="statsContent"></div></div><div class="panel"><h3>تقرير الموظفين</h3><button class="btn secondary" onclick="printEmployeesReport()">طباعة تقرير الموظفين</button></div></section>
+ <section class="page" id="backup">
+  <div class="panel"><h3>النسخ الاحتياطية واستعادة البيانات</h3><p class="hint">أنشئ نسخة احتياطية دورية واحفظها في مكان آمن. تتضمن النسخة بيانات الموظفين والكتب والمرفقات.</p><button class="btn primary" onclick="exportBackup()">⬇ تصدير نسخة احتياطية كاملة</button>
+  <label>استيراد نسخة احتياطية JSON</label><input type="file" id="backupFile" accept=".json,application/json"><button class="btn secondary" style="margin-top:10px" onclick="importBackup()">استعادة النسخة الاحتياطية</button><div class="progress"><div id="progressBar"></div></div></div>
+  <div class="panel"><h3>قواعد القدم والتأخير المسجلة</h3><table><tbody><tr><th>النوع</th><th>الجهة / العقوبة</th><th>المدة</th></tr><tr><td>كتاب شكر</td><td>مكتب رئيس الوزراء</td><td>6 أشهر قدم</td></tr><tr><td>كتاب شكر</td><td>الوزارة وحدها</td><td>شهر واحد قدم</td></tr><tr><td>عقوبة</td><td>إنذار</td><td>6 أشهر تأخير</td></tr><tr><td>عقوبة</td><td>توبيخ</td><td>12 شهراً تأخير</td></tr><tr><td>عقوبة</td><td>لفت نظر</td><td>3 أشهر تأخير</td></tr></tbody></table><p class="hint">هذه مدد أدخلها المستخدم حسب تعليماته. لا يجري النظام تغيير موعد الاستحقاق النهائي تلقائياً قبل اعتماد آلية الاحتساب القانونية الكاملة.</p></div>
+  <div class="panel"><h3>معلومات النظام</h3><p class="hint">الاسم: نظام شؤون الموظفين<br>الإصدار: 5.0 تجريبي<br>التخزين: IndexedDB محلي<br>الاتصال: لا يحتاج إلى إنترنت<br>المطور: كرار رحيم الكعبي</p></div>
+ </section>
+</main>
+</div>
+<div class="modal" id="employeeModal"><div class="dialog">
+ <div class="dialoghead"><h2 id="modalTitle">إضافة موظف جديد</h2><button class="close" onclick="closeEmployee()">✕ إغلاق</button></div>
+ <form id="employeeForm">
+ <input type="hidden" id="empId" value="">
+ <div class="photo-box"><div id="photoPreview"><div class="photo-placeholder">👤</div></div><div><b>صورة الموظف</b><p class="hint">اختر صورة من الجهاز. يتم حفظها داخل قاعدة بيانات التطبيق.</p><input type="file" id="photoFile" accept="image/*"><button type="button" class="btn danger smallbtn" onclick="removePhoto()">حذف الصورة</button></div></div>
+ <div class="tabs">
+  <button type="button" class="tab active" data-tab="personal">المعلومات الشخصية</button>
+  <button type="button" class="tab" data-tab="study">الدراسة والشهادة</button>
+  <button type="button" class="tab" data-tab="job">المعلومات الوظيفية</button>
+  <button type="button" class="tab" data-tab="career">العلاوات والترفيعات</button>
+  <button type="button" class="tab" data-tab="records">كتب الشكر والعقوبات</button>
+  <button type="button" class="tab" data-tab="attachments">الوثائق والمرفقات</button>
+ </div>
+ <div class="tabpane active" id="tab-personal"><div class="formgrid">
+  <div class="field"><label>الاسم الرباعي واللقب *</label><input id="name" required=""></div>
+  <div class="field"><label>اسم الأم الثلاثي واللقب</label><input id="mother"></div>
+  <div class="field"><label>الجنس</label><select id="gender"><option value="">اختر</option><option>ذكر</option><option>أنثى</option></select></div>
+  <div class="field"><label>تاريخ الولادة</label><input type="date" id="birthDate"></div>
+  <div class="field"><label>العمر (يُحسب تلقائياً)</label><input id="age" readonly=""></div>
+  <div class="field"><label>محل الولادة</label><input id="birthPlace"></div>
+  <div class="field"><label>الحالة الاجتماعية</label><select id="marital"><option value="">اختر</option><option>أعزب/عزباء</option><option>متزوج/ة</option><option>مطلق/ة</option><option>أرمل/ة</option></select></div>
+  <div class="field"><label>اسم الزوج/الزوجة الثلاثي واللقب</label><input id="spouse"></div>
+  <div class="field"><label>رقم البطاقة الوطنية الموحدة</label><input id="nationalId"></div>
+  <div class="field"><label>تاريخ إصدار البطاقة الموحدة</label><input type="date" id="nationalIdIssueDate"></div>
+  <div class="field"><label>دائرة الأحوال المدنية</label><input id="civilStatusOffice"></div>
+  <div class="field"><label>رقم البطاقة التموينية</label><input id="rationId"></div>
+  <div class="field"><label>رقم المركز التمويني</label><input id="rationCenter"></div>
+  <div class="field"><label>رقم بطاقة السكن</label><input id="housingId"></div>
+  <div class="field"><label>المحافظة</label><input id="governorate"></div>
+  <div class="field half"><label>عنوان السكن</label><input id="address"></div>
+  <div class="field"><label>أقرب نقطة دالة</label><input id="landmark"></div>
+  <div class="field"><label>رقم الهاتف</label><input id="phone" type="tel"></div>
+ </div></div>
+ <div class="tabpane" id="tab-study"><div class="formgrid">
+  <div class="field"><label>الشهادة / التحصيل الدراسي</label><select id="certificate"><option value="">اختر</option><option>ابتدائية</option><option>متوسطة</option><option>إعدادية</option><option>دبلوم</option><option>بكالوريوس</option><option>دبلوم عالي</option><option>ماجستير</option><option>دكتوراه</option><option>أخرى</option></select></div>
+  <div class="field"><label>الاختصاص العام</label><input id="specialty"></div>
+  <div class="field"><label>الاختصاص الدقيق</label><input id="specialtyDetail"></div>
+  <div class="field"><label>نوع الدراسة</label><select id="studyType"><option value="">اختر</option><option>حكومي</option><option>أهلي</option><option>خارجي</option><option>أخرى</option></select></div>
+  <div class="field"><label>فترة الدراسة</label><select id="studyPeriod"><option value="">اختر</option><option>صباحي</option><option>مسائي</option></select></div>
+  <div class="field"><label>تاريخ التخرج</label><input type="date" id="graduationDate"></div>
+  <div class="field"><label>الجامعة / المعهد</label><input id="institution"></div>
+ </div></div>
+ <div class="tabpane" id="tab-job"><div class="formgrid">
+  <div class="field"><label>الرقم الوظيفي</label><input id="employeeNo"></div>
+  <div class="field"><label>العنوان الوظيفي</label><input id="jobTitle"></div>
+  <div class="field"><label>الأمر الإداري / رقم وتاريخ</label><input id="adminOrder" placeholder="رقم الأمر وتاريخه"></div>
+  <div class="field"><label>تاريخ التعيين</label><input type="date" id="hireDate"></div>
+  <div class="field"><label>تاريخ المباشرة</label><input type="date" id="directDate"></div>
+  <div class="field"><label>الدرجة الوظيفية</label><input type="number" min="1" max="10" id="grade" value="7"></div>
+  <div class="field"><label>المرحلة</label><input type="number" min="1" id="stage" value="1"></div>
+  <div class="field"><label>مقدار الراتب</label><input type="number" min="0" id="salary"></div>
+  <div class="field"><label>حالة التعيين</label><select id="appointmentStatus"><option value="">اختر</option><option>ملاك دائم</option><option>عقد</option><option>أجر يومي</option><option>أخرى</option></select></div>
+  <div class="field"><label>مدة الخدمة (تلقائي)</label><input id="serviceText" readonly=""></div>
+  <div class="field"><label>تاريخ مباشرة التعيين السابق (إن وجد)</label><input type="date" id="previousDirectDate"></div>
+  <div class="field"><label>تاريخ مباشرة التعيين الجديد (إن وجد)</label><input type="date" id="newDirectDate"></div>
+  <div class="field"><label>مدة الفصل السياسي</label><input id="politicalSeparation" placeholder="مثال: سنتان و3 أشهر"></div>
+  <div class="field"><label>مدة الخدمة المحتسبة / ملاحظات</label><input id="serviceNotes"></div>
+  <div class="field"><label>الشعبة التي يعمل بها</label><input id="department"></div>
+  <div class="field"><label>هل لديه تصحيح أمني؟</label><select id="securityCorrection"><option value="">اختر</option><option>نعم</option><option>لا</option></select></div>
+  <div class="field"><label>هل لديه ضمان صحي؟</label><select id="healthInsurance"><option value="">اختر</option><option>نعم</option><option>لا</option></select></div>
+  <div class="field"><label>الحالة الوظيفية</label><select id="status"><option>مستمر</option><option>مجاز طويلة</option><option>متقاعد</option><option>موقوف مؤقتاً</option></select></div>
+ </div></div>
+ <div class="tabpane" id="tab-career"><div class="formgrid">
+  <div class="field"><label>آخر علاوة — رقم الكتاب وتاريخه</label><input id="lastBonus"></div>
+  <div class="field"><label>تاريخ آخر علاوة</label><input type="date" id="lastBonusDate"></div>
+  <div class="field"><label>موعد العلاوة القادمة</label><input type="date" id="nextBonus"></div>
+  <div class="field"><label>آخر ترفيع — رقم الكتاب وتاريخه</label><input id="lastPromotion"></div>
+  <div class="field"><label>تاريخ آخر ترفيع</label><input type="date" id="lastPromotionDate"></div>
+  <div class="field"><label>موعد الترفيع القادم</label><input type="date" id="nextPromotion"></div>
+  <div class="field"><label>مدة الخدمة لأغراض العلاوة</label><input id="bonusService" placeholder="تُراجع وفق الضوابط"></div>
+  <div class="field"><label>مدة الخدمة لأغراض الترفيع</label><input id="promotionService" placeholder="تُراجع وفق الضوابط"></div>
+  <div class="field full"><label>ملاحظات الاستحقاق</label><textarea id="careerNotes"></textarea></div>
+ </div></div>
+ <div class="tabpane" id="tab-records">
+  <div class="records"><div class="record-head"><h4>كتب الشكر</h4><button type="button" class="btn primary smallbtn" onclick="addRecord(&#39;thanks&#39;)">＋ إضافة كتاب شكر</button></div><p class="hint">مكتب رئيس الوزراء: 6 أشهر قدم. الوزارة وحدها: شهر واحد قدم. تُعرض المدة المحسوبة لكل كتاب وتبقى قابلة للمراجعة.</p><div id="thanksRecords"><div class="empty">لم تتم إضافة كتب شكر.</div></div></div>
+  <div class="records"><div class="record-head"><h4>العقوبات والإنذارات</h4><button type="button" class="btn primary smallbtn" onclick="addRecord(&#39;penalties&#39;)">＋ إضافة عقوبة</button></div><p class="hint">المدد المعتمدة حسب تأكيدك: إنذار 6 أشهر، توبيخ 12 شهراً، لفت نظر 3 أشهر تأخير.</p><div id="penaltyRecords"><div class="empty">لم تتم إضافة عقوبات.</div></div></div>
+  <div class="records"><label>ملاحظات عامة عن الكتب والعقوبات</label><textarea id="recordsNotes"></textarea></div>
+ </div>
+ <div class="tabpane" id="tab-attachments">
+  <div class="formgrid">
+   <div class="field"><label>كتاب العلاوة (صورة أو PDF)</label><input type="file" id="bonusFiles" accept="image/*,.pdf" multiple=""></div>
+   <div class="field"><label>كتاب الترفيع (صورة أو PDF)</label><input type="file" id="promotionFiles" accept="image/*,.pdf" multiple=""></div>
+   <div class="field"><label>كتب الشكر (صورة أو PDF)</label><input type="file" id="thanksFiles" accept="image/*,.pdf" multiple=""></div>
+   <div class="field"><label>كتب العقوبات (صورة أو PDF)</label><input type="file" id="penaltyFiles" accept="image/*,.pdf" multiple=""></div>
+   <div class="field"><label>المستمسكات والوثائق (صور أو PDF)</label><input type="file" id="documents" accept="image/*,.pdf" multiple=""></div>
+   <div class="field"><label>مرفقات أخرى</label><input type="file" id="otherFiles" multiple=""></div>
+  </div><p class="hint" id="existingFilesHint">يمكنك إرفاق الصور وملفات PDF.</p><div id="attachmentPreview"></div>
+ </div>
+ <div class="toolbar" style="justify-content:flex-end;margin-top:18px"><button type="submit" class="btn primary" id="saveBtn">حفظ أضبارة الموظف</button><button type="button" class="btn secondary" onclick="closeEmployee()">إلغاء</button></div>
+ </form>
+</div></div>
+
+<div class="modal" id="detailsModal"><div class="dialog"><div class="dialoghead"><h2>أضبارة الموظف</h2><div class="actions"><button class="btn secondary" onclick="printCurrent()">طباعة</button><button class="close" onclick="closeDetails()">✕</button></div></div><div id="detailsContent"></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+"use strict";
+const DB_NAME="KarrarHRDesktopStyleDB", DB_VERSION=1;
+const EMP="employees", FILES="files";
+let db, employees=[], editingId=null, photoBlob=null, removePhotoFlag=false, currentDetailId=null;
+let formRecords={thanks:[],penalties:[]}, currentObjectUrls=[];
+const $=id=>document.getElementById(id);
+const fields=["name","mother","gender","birthDate","birthPlace","marital","spouse","nationalId","nationalIdIssueDate","civilStatusOffice","rationId","rationCenter","housingId","governorate","address","landmark","phone","certificate","specialty","specialtyDetail","studyType","studyPeriod","graduationDate","institution","employeeNo","jobTitle","adminOrder","hireDate","directDate","grade","stage","salary","appointmentStatus","previousDirectDate","newDirectDate","politicalSeparation","serviceNotes","department","securityCorrection","healthInsurance","status","lastBonus","lastBonusDate","nextBonus","lastPromotion","lastPromotionDate","nextPromotion","bonusService","promotionService","careerNotes","recordsNotes"];
+function uid(){return crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2)}
+function toast(s){let t=$("toast");t.textContent=s;t.style.display="block";setTimeout(()=>t.style.display="none",3200)}
+function openDB(){return new Promise((res,rej)=>{let r=indexedDB.open(DB_NAME,DB_VERSION);r.onupgradeneeded=()=>{let d=r.result;if(!d.objectStoreNames.contains(EMP))d.createObjectStore(EMP,{keyPath:"id"});if(!d.objectStoreNames.contains(FILES))d.createObjectStore(FILES,{keyPath:"id"})};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+function getAll(){return new Promise((res,rej)=>{let r=db.transaction(EMP).objectStore(EMP).getAll();r.onsuccess=()=>res(r.result||[]);r.onerror=()=>rej(r.error)})}
+function getFile(id){return new Promise((res,rej)=>{if(!id)return res(null);let r=db.transaction(FILES).objectStore(FILES).get(id);r.onsuccess=()=>res(r.result||null);r.onerror=()=>rej(r.error)})}
+function commit(emp,newFiles=[],deleteIds=[]){return new Promise((res,rej)=>{let tx=db.transaction([EMP,FILES],"readwrite");let fs=tx.objectStore(FILES);newFiles.forEach(f=>fs.put(f));deleteIds.forEach(id=>fs.delete(id));tx.objectStore(EMP).put(emp);tx.oncomplete=res;tx.onerror=()=>rej(tx.error);tx.onabort=()=>rej(tx.error)})}
+function deleteEmp(id,ids){return new Promise((res,rej)=>{let tx=db.transaction([EMP,FILES],"readwrite");tx.objectStore(EMP).delete(id);ids.forEach(x=>tx.objectStore(FILES).delete(x));tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}
+function fileIds(f){let a=[];if(!f)return a;Object.values(f).forEach(v=>{if(Array.isArray(v))v.forEach(x=>x.id&&a.push(x.id));else if(v&&v.id)a.push(v.id)});return a}
+function nav(page){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));$(page).classList.add("active");document.querySelectorAll(".navbtn").forEach(x=>x.classList.toggle("active",x.dataset.page===page));$("pageTitle").textContent=({home:"لوحة التحكم",employees:"الموظفون والأضابير",alerts:"التنبيهات والاستحقاقات",stats:"الإحصائيات والتقارير",backup:"النسخ الاحتياطية"})[page];if(page==="employees")renderEmployees();if(page==="home")renderHome();if(page==="alerts")renderAlerts();if(page==="stats")renderStats()}
+document.querySelectorAll(".navbtn").forEach(b=>b.onclick=()=>nav(b.dataset.page));
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".tabpane").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("tab-"+b.dataset.tab).classList.add("active")});
+function setTab(name){document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.tab===name));document.querySelectorAll(".tabpane").forEach(x=>x.classList.toggle("active",x.id==="tab-"+name))}
+function val(id){return $(id)?.value??""}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function ageOf(d){if(!d)return "";let b=new Date(d+"T00:00:00"),n=new Date();if(isNaN(b)||b>n)return "";let y=n.getFullYear()-b.getFullYear();if(n.getMonth()<b.getMonth()||(n.getMonth()===b.getMonth()&&n.getDate()<b.getDate()))y--;return y+" سنة"}
+function serviceOf(d){if(!d)return "غير محددة";let a=new Date(d+"T00:00:00"),b=new Date();if(isNaN(a)||a>b)return "غير محددة";let y=b.getFullYear()-a.getFullYear(),m=b.getMonth()-a.getMonth(),day=b.getDate()-a.getDate();if(day<0){m--;day+=new Date(b.getFullYear(),b.getMonth(),0).getDate()}if(m<0){y--;m+=12}return `${y} سنة، ${m} شهر، ${day} يوم`}
+function refreshAuto(){ $("age").value=ageOf(val("birthDate"));$("serviceText").value=serviceOf(val("directDate")||val("hireDate"))}
+$("birthDate").addEventListener("change",refreshAuto);$("directDate").addEventListener("change",refreshAuto);$("hireDate").addEventListener("change",refreshAuto);
+function openEmployee(id=null){editingId=id;photoBlob=null;removePhotoFlag=false;formRecords={thanks:[],penalties:[]};$("employeeForm").reset();$("empId").value=id||"";$("grade").value=7;$("stage").value=1;$("photoPreview").innerHTML='<div class="photo-placeholder">👤</div>';["bonusFiles","promotionFiles","thanksFiles","penaltyFiles","documents","otherFiles","photoFile"].forEach(x=>$(x).value="");$("attachmentPreview").innerHTML="";if(id){let e=employees.find(x=>x.id===id);if(!e)return;fields.forEach(k=>$(k).value=e[k]??"");formRecords=JSON.parse(JSON.stringify(e.records||{thanks:[],penalties:[]}));$("modalTitle").textContent="تعديل أضبارة الموظف";loadPhoto(e);$("existingFilesHint").textContent="المرفقات السابقة محفوظة. الملفات الجديدة ستضاف دون حذف القديمة."}else{$("modalTitle").textContent="إضافة موظف جديد";$("existingFilesHint").textContent="يمكنك إرفاق الصور وملفات PDF."}renderRecordForms();refreshAuto();setTab("personal");$("employeeModal").classList.add("show")}
+async function loadPhoto(e){if(e.files?.photo){let f=await getFile(e.files.photo.id);if(f){let u=URL.createObjectURL(f.blob);$("photoPreview").innerHTML=`<img src="${u}" onload="URL.revokeObjectURL(this.src)">`}}}
+function closeEmployee(){$("employeeModal").classList.remove("show")}
+function removePhoto(){photoBlob=null;removePhotoFlag=true;$("photoFile").value="";$("photoPreview").innerHTML='<div class="photo-placeholder">👤</div>'}
+$("photoFile").addEventListener("change",async e=>{let f=e.target.files[0];if(!f)return;if(!f.type.startsWith("image/"))return alert("اختر صورة صحيحة");photoBlob=f;removePhotoFlag=false;let u=URL.createObjectURL(f);$("photoPreview").innerHTML=`<img src="${u}" onload="URL.revokeObjectURL(this.src)">`});
+function addRecord(type){formRecords[type].push(type==="thanks"?{id:uid(),authority:"",bookNo:"",date:"",kind:"",months:0,notes:""}:{id:uid(),type:"إنذار",bookNo:"",date:"",months:6,notes:""});renderRecordForms()}
+function removeRecord(type,id){formRecords[type]=formRecords[type].filter(x=>x.id!==id);renderRecordForms()}
+function updateRecord(type,id,key,value){let r=formRecords[type].find(x=>x.id===id);if(!r)return;r[key]=value;if(type==="thanks"&&key==="authority")r.months=value==="مكتب رئيس الوزراء"?6:value==="الوزارة وحدها"?1:0;if(type==="penalties"&&key==="type")r.months=({"إنذار":6,"توبيخ":12,"لفت نظر":3}[value]??0);renderRecordForms()}
+function renderRecordForms(){
+ $("thanksRecords").innerHTML=formRecords.thanks.map(r=>`<div class="records"><div class="record-head"><b>كتاب شكر</b><button type="button" class="btn danger smallbtn" onclick="removeRecord('thanks','${r.id}')">حذف السجل</button></div><div class="record-grid"><div><label>الجهة المصدرة</label><select onchange="updateRecord('thanks','${r.id}','authority',this.value)"><option value="">اختر</option><option ${r.authority==="مكتب رئيس الوزراء"?"selected":""}>مكتب رئيس الوزراء</option><option ${r.authority==="الوزارة وحدها"?"selected":""}>الوزارة وحدها</option><option ${r.authority==="جهة أخرى"?"selected":""}>جهة أخرى</option></select></div><div><label>رقم الكتاب</label><input value="${esc(r.bookNo)}" onchange="updateRecord('thanks','${r.id}','bookNo',this.value)"></div><div><label>تاريخ الكتاب</label><input type="date" value="${esc(r.date)}" onchange="updateRecord('thanks','${r.id}','date',this.value)"></div><div><label>مدة القدم (أشهر)</label><input type="number" min="0" value="${r.months}" onchange="updateRecord('thanks','${r.id}','months',Number(this.value))"></div><div class="field full"><label>ملاحظات / عنوان الكتاب</label><input value="${esc(r.notes)}" onchange="updateRecord('thanks','${r.id}','notes',this.value)"></div></div></div>`).join("")||'<div class="empty">لم تتم إضافة كتب شكر.</div>';
+ $("penaltyRecords").innerHTML=formRecords.penalties.map(r=>`<div class="records"><div class="record-head"><b>سجل عقوبة</b><button type="button" class="btn danger smallbtn" onclick="removeRecord('penalties','${r.id}')">حذف السجل</button></div><div class="record-grid"><div><label>نوع العقوبة</label><select onchange="updateRecord('penalties','${r.id}','type',this.value)">${["إنذار","توبيخ","لفت نظر","أخرى"].map(t=>`<option ${r.type===t?"selected":""}>${t}</option>`).join("")}</select></div><div><label>رقم الكتاب</label><input value="${esc(r.bookNo)}" onchange="updateRecord('penalties','${r.id}','bookNo',this.value)"></div><div><label>تاريخ الكتاب</label><input type="date" value="${esc(r.date)}" onchange="updateRecord('penalties','${r.id}','date',this.value)"></div><div><label>مدة التأخير (أشهر)</label><input type="number" min="0" value="${r.months}" onchange="updateRecord('penalties','${r.id}','months',Number(this.value))"></div><div class="field full"><label>ملاحظات</label><input value="${esc(r.notes)}" onchange="updateRecord('penalties','${r.id}','notes',this.value)"></div></div></div>`).join("")||'<div class="empty">لم تتم إضافة عقوبات.</div>'}
+function fileMeta(f){return {id:uid(),name:f.name,type:f.type||"application/octet-stream",blob:f}}
+async function submitEmployee(ev){ev.preventDefault();let name=val("name").trim();if(!name)return alert("يرجى إدخال اسم الموظف");let btn=$("saveBtn");btn.disabled=true;btn.textContent="جارٍ الحفظ...";try{let old=editingId?employees.find(x=>x.id===editingId):null;let files=JSON.parse(JSON.stringify(old?.files||{}));let newFiles=[];if(photoBlob){let f=fileMeta(photoBlob);newFiles.push(f);if(files.photo?.id){}files.photo={id:f.id,name:f.name,type:f.type}}else if(removePhotoFlag)files.photo=null;
+for(let [input,key] of [["bonusFiles","bonus"],["promotionFiles","promotion"],["thanksFiles","thanks"],["penaltyFiles","penalties"],["documents","documents"],["otherFiles","other"]]){let arr=files[key]||[];for(let f of Array.from($(input).files)){let x=fileMeta(f);newFiles.push(x);arr.push({id:x.id,name:x.name,type:x.type})}files[key]=arr}
+let emp={id:editingId||uid(),files,records:JSON.parse(JSON.stringify(formRecords)),updatedAt:new Date().toISOString()};fields.forEach(k=>emp[k]=val(k));emp.grade=Number(emp.grade||0);emp.stage=Number(emp.stage||0);emp.salary=Number(emp.salary||0);await commit(emp,newFiles);employees=await getAll();closeEmployee();renderHome();renderEmployees();renderAlerts();toast("تم حفظ أضبارة الموظف بنجاح")}catch(e){console.error(e);alert("تعذر الحفظ. تحقق من مساحة التخزين وحجم المرفقات.")}finally{btn.disabled=false;btn.textContent="حفظ أضبارة الموظف"}}
+$("employeeForm").addEventListener("submit",submitEmployee);
+async function imageFor(id){let f=await getFile(id);if(!f)return "";let u=URL.createObjectURL(f.blob);return `<img class="avatar" src="${u}" onload="URL.revokeObjectURL(this.src)">`}
+async function renderEmployees(){let q=val("search").trim().toLowerCase(),list=$("employeeList");let found=employees.filter(e=>[e.name,e.employeeNo,e.jobTitle].some(x=>String(x||"").toLowerCase().includes(q)));if(!found.length){list.innerHTML='<div class="empty">لا توجد أضابير مطابقة.</div>';return}let rows=[];for(let e of found){let pic=e.files?.photo?.id?await imageFor(e.files.photo.id):'<div class="avatar">👤</div>';rows.push(`<div class="employee-row">${pic}<div><h4>${esc(e.name)}</h4><p>الرقم الوظيفي: ${esc(e.employeeNo||"—")} | ${esc(e.jobTitle||"—")}</p></div><div class="rowextra"><p>الدرجة: ${esc(e.grade)} / المرحلة: ${esc(e.stage)}</p><p>الخدمة: ${serviceOf(e.directDate||e.hireDate)}</p><span class="badge">${esc(e.status||"غير محدد")}</span></div><div class="actions"><button class="btn secondary smallbtn" onclick="showDetails('${e.id}')">عرض</button><button class="btn blue smallbtn" onclick="openEmployee('${e.id}')">تعديل</button><button class="btn gold smallbtn" onclick="exportOne('${e.id}')">تصدير</button><button class="btn danger smallbtn" onclick="deleteEmployee('${e.id}')">حذف</button></div></div>`)}list.innerHTML=rows.join("")}
+function recordSummary(records,type){return (records?.[type]||[]).map(r=>type==="thanks"?`<tr><td>شكر</td><td>${esc(r.authority)}</td><td>${esc(r.bookNo)}</td><td>${esc(r.date)}</td><td>${r.months} شهر قدم</td></tr>`:`<tr><td>${esc(r.type)}</td><td>—</td><td>${esc(r.bookNo)}</td><td>${esc(r.date)}</td><td>${r.months} شهر تأخير</td></tr>`).join("")}
+function cell(k,label){return `<div class="detailcell"><small>${label}</small><b>${esc(k||"—")}</b></div>`}
+async function showDetails(id){let e=employees.find(x=>x.id===id);if(!e)return;currentDetailId=id;let pic=e.files?.photo?.id?await imageFor(e.files.photo.id):'<div class="photo-placeholder">👤</div>';let html=`<div class="photo-box">${pic}<div><h2>${esc(e.name)}</h2><span class="badge">${esc(e.status)}</span><p class="hint">الرقم الوظيفي: ${esc(e.employeeNo||"—")}</p></div></div><h3>المعلومات الشخصية</h3><div class="detailgrid">${cell(e.mother,"اسم الأم")}${cell(e.gender,"الجنس")}${cell(e.birthDate,"تاريخ الولادة")}${cell(ageOf(e.birthDate),"العمر")}${cell(e.birthPlace,"محل الولادة")}${cell(e.marital,"الحالة الاجتماعية")}${cell(e.spouse,"الزوج/الزوجة")}${cell(e.nationalId,"البطاقة الوطنية")}${cell(e.nationalIdIssueDate,"تاريخ إصدار البطاقة")}${cell(e.civilStatusOffice,"دائرة الأحوال المدنية")}${cell(e.rationId,"البطاقة التموينية")}${cell(e.rationCenter,"المركز التمويني")}${cell(e.housingId,"بطاقة السكن")}${cell(e.governorate,"المحافظة")}${cell(e.address,"عنوان السكن")}${cell(e.landmark,"أقرب نقطة دالة")}${cell(e.phone,"الهاتف")}</div><h3 style="margin-top:18px">الدراسة والشهادة</h3><div class="detailgrid">${cell(e.certificate,"الشهادة")}${cell(e.specialty,"الاختصاص العام")}${cell(e.specialtyDetail,"الاختصاص الدقيق")}${cell(e.studyType,"نوع الدراسة")}${cell(e.studyPeriod,"فترة الدراسة")}${cell(e.graduationDate,"تاريخ التخرج")}${cell(e.institution,"الجامعة/المعهد")}</div><h3 style="margin-top:18px">المعلومات الوظيفية</h3><div class="detailgrid">${cell(e.jobTitle,"العنوان الوظيفي")}${cell(e.adminOrder,"الأمر الإداري")}${cell(e.hireDate,"تاريخ التعيين")}${cell(e.directDate,"تاريخ المباشرة")}${cell(e.grade,"الدرجة")}${cell(e.stage,"المرحلة")}${cell(e.salary,"مقدار الراتب")}${cell(e.appointmentStatus,"حالة التعيين")}${cell(serviceOf(e.directDate||e.hireDate),"مدة الخدمة")}${cell(e.politicalSeparation,"الفصل السياسي")}${cell(e.department,"الشعبة")}${cell(e.securityCorrection,"التصحيح الأمني")}${cell(e.healthInsurance,"الضمان الصحي")}</div><h3 style="margin-top:18px">العلاوات والترفيعات</h3><div class="detailgrid">${cell(e.lastBonus,"آخر علاوة / رقم الكتاب")}${cell(e.lastBonusDate,"تاريخ آخر علاوة")}${cell(e.nextBonus,"العلاوة القادمة")}${cell(e.lastPromotion,"آخر ترفيع / رقم الكتاب")}${cell(e.lastPromotionDate,"تاريخ آخر ترفيع")}${cell(e.nextPromotion,"الترفيع القادم")}${cell(e.bonusService,"خدمة العلاوة")}${cell(e.promotionService,"خدمة الترفيع")}</div><h3 style="margin-top:18px">كتب الشكر والعقوبات</h3><table><tr><th>النوع</th><th>الجهة</th><th>رقم الكتاب</th><th>التاريخ</th><th>الأثر المسجل</th></tr>${recordSummary(e.records,"thanks")}${recordSummary(e.records,"penalties")}</table><h3 style="margin-top:18px">الوثائق والمرفقات</h3><div id="detailFiles"></div><div class="no-print actions" style="margin-top:15px"><button class="btn primary" onclick="openEmployee('${e.id}')">تعديل الأضبارة</button><button class="btn secondary" onclick="printCurrent()">طباعة الأضبارة</button></div>`;$("detailsContent").innerHTML=html;await renderDetailFiles(e.files||{});$("detailsModal").classList.add("show")}
+async function renderDetailFiles(files){let box=$("detailFiles"),out="";for(let [key,label] of [["bonus","كتب العلاوة"],["promotion","كتب الترفيع"],["thanks","كتب الشكر"],["penalties","كتب العقوبات"],["documents","المستمسكات والوثائق"],["other","مرفقات أخرى"]]){let a=Array.isArray(files[key])?files[key]:(files[key]?[files[key]]:[]);out+=`<h4>${label}</h4>`;if(!a.length){out+='<p class="hint">لا توجد مرفقات</p>';continue}for(let x of a){let f=await getFile(x.id);if(!f)continue;let u=URL.createObjectURL(f.blob);out+=`<div class="fileline"><span>${esc(f.name)}</span><span><a href="${u}" target="_blank">فتح</a>　<a href="${u}" download="${esc(f.name)}">تنزيل</a></span></div>`}}box.innerHTML=out}
+function closeDetails(){$("detailsModal").classList.remove("show")}
+function printCurrent(){window.print()}
+async function deleteEmployee(id){let e=employees.find(x=>x.id===id);if(!e||!confirm("هل تريد حذف أضبارة "+e.name+" وجميع مرفقاتها نهائياً؟"))return;try{await deleteEmp(id,fileIds(e.files));employees=await getAll();renderEmployees();renderHome();renderAlerts();closeDetails();toast("تم حذف الأضبارة ومرفقاتها")}catch(x){alert("تعذر الحذف")}}
+function dueItems(){let a=[];for(let e of employees){if(e.status!=="مستمر")continue;for(let [type,date] of [["العلاوة",e.nextBonus],["الترفيع",e.nextPromotion]]){if(!date)continue;let d=new Date(date+"T00:00:00"),t=new Date();t.setHours(0,0,0,0);let days=Math.ceil((d-t)/86400000);if(days<=30)a.push({e,type,date,days})}}return a.sort((x,y)=>x.days-y.days)}
+function dueText(d){return d<0?"متأخر "+Math.abs(d)+" يوم":d===0?"موعد الاستحقاق اليوم":"باقي "+d+" يوم"}
+function renderAlerts(){let a=dueItems();$("alertsList").innerHTML=a.length?a.map(x=>`<div class="records"><b>${esc(x.e.name)}</b><p class="hint">${x.type} — ${esc(x.date)}</p><span class="badge">${dueText(x.days)}</span></div>`).join(""):'<div class="empty">لا توجد استحقاقات خلال الثلاثين يوماً القادمة.</div>'}
+function renderHome(){let active=employees.filter(e=>e.status==="مستمر").length;let a=dueItems();$("homeStats").innerHTML=[["إجمالي الموظفين",employees.length],["المستمرون",active],["المجازون",employees.filter(e=>e.status==="مجاز طويلة").length],["استحقاقات قريبة",a.length]].map(x=>`<div class="stat"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join("");$("recent").innerHTML=employees.length?employees.slice().sort((a,b)=>(b.updatedAt||"").localeCompare(a.updatedAt||"")).slice(0,5).map(e=>`<div class="fileline"><b>${esc(e.name)}</b><span>${esc(e.jobTitle||"—")}</span></div>`).join(""):'<div class="empty">لا توجد أضابير مسجلة.</div>';$("homeDue").innerHTML=a.slice(0,5).map(x=>`<div class="fileline"><b>${esc(x.e.name)} — ${x.type}</b><span>${dueText(x.days)}</span></div>`).join("")||'<div class="empty">لا توجد استحقاقات قريبة.</div>'}
+function renderStats(){let count=s=>employees.filter(e=>e.status===s).length;$("statsContent").innerHTML=`<div class="stats-grid"><div class="stat"><small>العدد الكلي</small><strong>${employees.length}</strong></div><div class="stat"><small>مستمر</small><strong>${count("مستمر")}</strong></div><div class="stat"><small>مجاز طويلة</small><strong>${count("مجاز طويلة")}</strong></div><div class="stat"><small>متقاعد</small><strong>${count("متقاعد")}</strong></div></div><p class="hint">الموقوفون مؤقتاً: ${count("موقوف مؤقتاً")}</p>`}
+function printEmployeesReport(){let w=window.open("","_blank");if(!w)return alert("اسمح بفتح نافذة الطباعة");w.document.write(`<html dir="rtl"><meta charset="utf-8"><title>تقرير الموظفين</title><body style="font-family:Tahoma;padding:25px"><h2>تقرير الموظفين — نظام شؤون الموظفين</h2><table border="1" cellspacing="0" cellpadding="8" width="100%"><tr><th>الاسم</th><th>الرقم الوظيفي</th><th>العنوان</th><th>الدرجة</th><th>المرحلة</th><th>الحالة</th></tr>${employees.map(e=>`<tr><td>${esc(e.name)}</td><td>${esc(e.employeeNo)}</td><td>${esc(e.jobTitle)}</td><td>${esc(e.grade)}</td><td>${esc(e.stage)}</td><td>${esc(e.status)}</td></tr>`).join("")}</table><script>window.print()<\/script></body></html>`);w.document.close()}
+async function backupObject(){let arr=[];for(let e of employees){let x=JSON.parse(JSON.stringify(e));x.fileData={};for(let id of fileIds(e.files)){let f=await getFile(id);if(f){let data=await new Promise((res,rej)=>{let r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f.blob)});x.fileData[id]={name:f.name,type:f.type,data}}}arr.push(x)}return {app:"KarrarHR",version:5,createdAt:new Date().toISOString(),employees:arr}}
+async function exportBackup(){try{$("progressBar").style.width="10%";let data=await backupObject();$("progressBar").style.width="80%";let blob=new Blob([JSON.stringify(data)],{type:"application/json"}),u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download="Karrar_HR_Backup_"+new Date().toISOString().slice(0,10)+".json";a.click();setTimeout(()=>URL.revokeObjectURL(u),5000);$("progressBar").style.width="100%";toast("تم إنشاء النسخة الاحتياطية")}catch(e){console.error(e);alert("تعذر إنشاء النسخة الاحتياطية")}}
+async function importBackup(){let f=$("backupFile").files[0];if(!f)return alert("اختر ملف النسخة أولاً");if(!confirm("ستُستبدل البيانات الحالية بالنسخة المستوردة. هل تريد المتابعة؟"))return;try{let data=JSON.parse(await f.text());if(data.app!=="KarrarHR"||!Array.isArray(data.employees))throw Error("invalid");let newE=[],newF=[];for(let old of data.employees){let e={...old};let map={};for(let [oldId,x] of Object.entries(old.fileData||{})){let id=uid(),blob=await (await fetch(x.data)).blob();newF.push({id,name:x.name,type:x.type,blob});map[oldId]={id,name:x.name,type:x.type}}function replace(v){if(Array.isArray(v))return v.map(x=>map[x.id]||x);if(v&&v.id)return map[v.id]||v;return v}for(let k of Object.keys(e.files||{}))e.files[k]=replace(e.files[k]);delete e.fileData;newE.push(e)}await new Promise((res,rej)=>{let tx=db.transaction([EMP,FILES],"readwrite");tx.objectStore(EMP).clear();tx.objectStore(FILES).clear();newE.forEach(e=>tx.objectStore(EMP).put(e));newF.forEach(x=>tx.objectStore(FILES).put(x));tx.oncomplete=res;tx.onerror=()=>rej(tx.error)});employees=await getAll();renderHome();renderEmployees();renderAlerts();$("backupFile").value="";$("progressBar").style.width="0%";toast("تمت استعادة النسخة الاحتياطية")}catch(e){console.error(e);alert("فشل الاستيراد. تأكد من أن الملف نسخة صحيحة من النظام.")}}
+async function exportOne(id){let old=employees.find(x=>x.id===id);if(!old)return;let save=employees;employees=[old];try{let data=await backupObject();let blob=new Blob([JSON.stringify(data)],{type:"application/json"}),u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download="اضبارة_"+(old.name||"موظف")+".json";a.click();setTimeout(()=>URL.revokeObjectURL(u),5000)}finally{employees=save}}
+async function init(){try{db=await openDB();employees=await getAll();$("today").textContent=new Date().toLocaleDateString("ar-IQ",{year:"numeric",month:"long",day:"numeric"});renderHome()}catch(e){console.error(e);alert("تعذر فتح قاعدة البيانات. افتح الملف من Chrome أو من تطبيق WebView يدعم IndexedDB.")}}
+init();
+</script>
+
+</body></html>
