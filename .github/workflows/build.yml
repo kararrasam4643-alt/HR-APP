@@ -31,7 +31,7 @@ jobs:
           echo 'app.on("window-all-closed", () => app.quit());' >> main.js
           
       - name: بناء التطبيق
-        run: npx electron-builder --win --ia32
+        run: npx electron-builder --win --ia32 --publish never
 
       - name: حفظ ملف التطبيق
         uses: actions/upload-artifact@v4
